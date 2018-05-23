@@ -62,9 +62,9 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Users</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-users"></i><a href="add-user.html">Add users</a></li>
-                            <li><i class="fa fa-rss"></i><a href="add-wifi-password.html">Add wifi password</a></li>
-                            <li><i class="fa fa-list"></i><a href="user-list.html">Users list</a></li>
+                            <li><i class="fa fa-users"></i><a href="ui-buttons.html">Add users</a></li>
+                            <li><i class="fa fa-rss"></i><a href="ui-badges.html">Add wifi password</a></li>
+                            <li><i class="fa fa-list"></i><a href="ui-tabs.html">Users list</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -127,41 +127,50 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Dashboard</h1>
+                        <h1>Add users</h1>
                     </div>
                 </div>
             </div>
         </div>
 
-<body>
-	<div class="col-md-4">
-                        <div class="card">
-                            <img class="card-img-top" src="images/placeholder.png" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title mb-3">Captain OpenSpace</h4>
-                                <p class="card-text">Utilisateur : lenumero1 </br>Mot de passe : jugtreppokj</p>
+    <body>
+        <div class="col-lg-12">
+                    <div class="card">
+                      <div class="card-header">Add user</div>
+                      <div class="card-body card-block">
+
+                        <form action="" method="post" class="">
+                          <div class="form-group">
+                            <div class="input-group">
+                              <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                              <input type="text" id="nom" name="nom" placeholder="Nom" class="form-control">
                             </div>
-                        </div>
-                    </div>
-    <div class="col-md-4">
-                        <div class="card">
-                            <img class="card-img-top" src="images/placeholder.png" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title mb-3">Captain Reunion</h4>
-                                <p class="card-text">Utilisateur : lenumero1 </br>Mot de passe : 545311ffgc</p>
+                          </div>
+                          <div class="form-group">
+                            <div class="input-group">
+                              <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                              <input type="text" id="prenom" name="prenom" placeholder="Prénom" class="form-control">
                             </div>
-                        </div>
-                    </div>
-    <div class="col-md-4">
-                        <div class="card">
-                            <img class="card-img-top" src="images/placeholder.png" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title mb-3">RJ45</h4>
-                                <p class="card-text">Branchez vous a un réseau quifait laguer vos vm</p>
+                          </div>
+                          <div class="form-group">
+                            <div class="input-group">
+                              <div class="input-group-addon"><i class="fa fa-envelope"></i></div>
+                              <input type="email" id="email" name="email" placeholder="Email" class="form-control">
                             </div>
-                        </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="input-group">
+                              <div class="input-group-addon"><i class="fa fa-phone"></i></div>
+                              <input type="tel" id="tel" name="tel" placeholder="Tel" class="form-control">
+                            </div>
+                          </div>
+                          <center><div class="form-actions form-group"><button type="submit" class="btn btn-success btn-sm">Submit</button></div></center>
+                        </form>
+
+                      </div>
                     </div>
-</body>
+                  </div>
+    </body>
 
     <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>

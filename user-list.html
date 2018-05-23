@@ -63,7 +63,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Users</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-users"></i><a href="add-user.html">Add users</a></li>
-                            <li><i class="fa fa-rss"></i><a href="add-wifi-password.html">Add wifi password</a></li>
+                            <li><i class="fa fa-rss"></i><a href="ui-badges.html">Add wifi password</a></li>
                             <li><i class="fa fa-list"></i><a href="user-list.html">Users list</a></li>
                         </ul>
                     </li>
@@ -123,44 +123,46 @@
         </header><!-- /header -->
         <!-- Header-->
 
-        <div class="breadcrumbs">
-            <div class="col-sm-4">
-                <div class="page-header float-left">
-                    <div class="page-title">
-                        <h1>Dashboard</h1>
+<body>
+	<div class="content mt-3">
+            <div class="animated fadeIn">
+                <div class="row">
+
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Users list</strong>
+                        </div>
+                        <div class="card-body">
+                  <table id="user-list" class="table table-striped table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Mail</th>
+                        <th>Téléphone</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Tiger</td>
+                        <td>Nixon</td>
+                        <td>TN@gmail.com</td>
+                        <td>061122334455</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-<body>
-	<div class="col-md-4">
-                        <div class="card">
-                            <img class="card-img-top" src="images/placeholder.png" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title mb-3">Captain OpenSpace</h4>
-                                <p class="card-text">Utilisateur : lenumero1 </br>Mot de passe : jugtreppokj</p>
-                            </div>
-                        </div>
-                    </div>
-    <div class="col-md-4">
-                        <div class="card">
-                            <img class="card-img-top" src="images/placeholder.png" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title mb-3">Captain Reunion</h4>
-                                <p class="card-text">Utilisateur : lenumero1 </br>Mot de passe : 545311ffgc</p>
-                            </div>
-                        </div>
-                    </div>
-    <div class="col-md-4">
-                        <div class="card">
-                            <img class="card-img-top" src="images/placeholder.png" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title mb-3">RJ45</h4>
-                                <p class="card-text">Branchez vous a un réseau quifait laguer vos vm</p>
-                            </div>
-                        </div>
-                    </div>
+
+                </div>
+            </div><!-- .animated -->
+        </div><!-- .content -->
+
+
+    </div><!-- /#right-panel -->
 </body>
 
     <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>

@@ -79,7 +79,7 @@ h6 {
 
 ul,
 ol {
-  padding-left: 0; }
+  padding-left: 25px; }
 
 .btn:focus,
 button:focus {
@@ -87,7 +87,7 @@ button:focus {
   outline: 0; }
 
 img {
-  max-width: 100%; }
+  max-width: 50%; }
 
 /* Global Styles */
 /* Main Styles */
@@ -370,8 +370,8 @@ header.fixed-top {
   position: inherit; }
 
 .menutoggle {
-  background: #e74c3c;
-  border-radius: 50%;
+  background: #bf00ff;
+  border-radius: 35%;
   color: #fff !important;
   cursor: pointer;
   font-size: 18px;
