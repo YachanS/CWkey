@@ -49,7 +49,7 @@
                     <li class="active">
                         <a href="index.html"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                     </li>
-                    	<li class="menu-item-has-children dropdown">
+                        <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-user"></i>Comptes</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="menu-icon fa fa-sign-in"></i><a href="page-login.html">Login</a></li>
@@ -123,47 +123,77 @@
         </header><!-- /header -->
         <!-- Header-->
 
-<body>
-	<div class="content mt-3">
-            <div class="animated fadeIn">
-                <div class="row">
-
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <strong class="card-title">Users list</strong>
-                        </div>
-                        <div class="card-body">
-                  <table id="user-list" class="table table-striped table-bordered">
-                    <thead>
-                      <tr>
-                        <th>Nom</th>
-                        <th>Prénom</th>
-                        <th>Mail</th>
-                        <th>Téléphone</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>Tiger</td>
-                        <td>Nixon</td>
-                        <td>TN@gmail.com</td>
-                        <td>061122334455</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                        </div>
+        <div class="breadcrumbs">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Change Profile</h1>
                     </div>
                 </div>
+            </div>
+        </div>
 
+    <body>
 
+<div class="col-lg-12">
+    <form action="" method="post" class="form-horizontal">
+        <div class="card">
+            <div class="card-body card-block">
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="hf-email" class=" form-control-label">Name</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input type="email" id="hf-email" name="hf-email" placeholder="..." class="form-control">
+                    </div>
                 </div>
-            </div><!-- .animated -->
-        </div><!-- .content -->
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="hf-email" class=" form-control-label">Family name</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input type="email" id="hf-email" name="hf-email" placeholder="..." class="form-control">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="hf-email" class=" form-control-label">Email</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input type="email" id="hf-email" name="hf-email" placeholder="..." class="form-control">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="hf-password" class=" form-control-label">Phone</label>
+                    </div>
+                    <div class="col-12 col-md-9"><input type="password" id="hf-password" name="hf-password" placeholder="..." class="form-control">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="hf-password" class=" form-control-label">Password</label>
+                    </div>
+                    <div class="col-12 col-md-9"><input type="password" id="hf-password" name="hf-password" placeholder="..." class="form-control">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="hf-password" class=" form-control-label">Re Password</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input type="password" id="hf-password" name="hf-password" placeholder="..." class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary btn-sm">
+                    <i class="fa fa-dot-circle-o"></i> Submit
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
 
-
-    </div><!-- /#right-panel -->
-</body>
+    </body>
 
     <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>

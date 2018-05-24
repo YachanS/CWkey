@@ -49,7 +49,7 @@
                     <li class="active">
                         <a href="index.html"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                     </li>
-                    	<li class="menu-item-has-children dropdown">
+                        <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-user"></i>Comptes</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="menu-icon fa fa-sign-in"></i><a href="page-login.html">Login</a></li>
@@ -63,7 +63,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Users</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-users"></i><a href="add-user.html">Add users</a></li>
-                            <li><i class="fa fa-rss"></i><a href="ui-badges.html">Add wifi password</a></li>
+                            <li><i class="fa fa-rss"></i><a href="wifi.html">Add wifi password</a></li>
                             <li><i class="fa fa-list"></i><a href="user-list.html">Users list</a></li>
                         </ul>
                     </li>
@@ -97,7 +97,7 @@
                         </a>
 
                         <div class="user-menu dropdown-menu">
-                                <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
+                                <a class="nav-link" href="profil.html"><i class="fa fa- user"></i>My Profile</a>
 
                                 <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
                         </div>
@@ -127,15 +127,43 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Add wifi password</h1>
+                        <h1>Profile</h1>
                     </div>
                 </div>
             </div>
         </div>
 
-<body>
-	
-</body>
+    <body>
+
+<div class="col-md-12">
+                        <aside class="profile-nav alt">
+                            <section class="card">
+                                <div class="card-header user-header alt bg-dark">
+                                    <div class="media">
+                                        <div class="media-body">
+                                            <h2 class="text-light display-6">Jim Doe</h2>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <a href="#"> <i class="fa fa-envelope-o"></i> Mail : jdcwkey@hotmail.fr</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a href="#"> <i class="fa fa-phone"></i> Tel : 061122334455</a>
+                                    </li>
+                                </ul>
+
+                            </section>
+                        </aside>
+                    </div>
+
+    <a href="modif-profil.html">
+        <button type="button" class="btn btn-secondary" style="position: relative; left: 88%; color: #fff;">Modifier</button>
+    </a>
+
+    </body>
 
     <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
