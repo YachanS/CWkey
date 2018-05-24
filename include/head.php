@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Sufee Admin - HTML5 Admin Template</title>
+    <title>WIFI - Captain Coworking</title>
     <meta name="description" content="Sufee Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -21,43 +21,10 @@
     <link rel="stylesheet" href="assets/css/cs-skin-elastic.css">
     <!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> -->
     <link rel="stylesheet" href="assets/scss/style.css">
+    <link href="assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet">
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
 
 </head>
-<body class="bg-dark">
-
-
-    <div class="sufee-login d-flex align-content-center flex-wrap">
-        <div class="container">
-            <div class="login-content">
-                <div class="login-logo">
-                    <a href="index.html">
-                        <img class="align-content" src="images/logo2.png" alt="">
-                    </a>
-                </div>
-                <div class="login-form">
-                    <form>
-                        <div class="form-group">
-                            <label>Forget password ?</label>
-                            <input type="phone" pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$" class="form-control" placeholder="enter your phone number (example : 0611223344)">
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-flat m-b-15">Submit</button>
-
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/plugins.js"></script>
-    <script src="assets/js/main.js"></script>
-
-
-</body>
-</html>
