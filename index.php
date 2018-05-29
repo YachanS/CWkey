@@ -1,4 +1,12 @@
-<?php include('include/head.php'); ?>
+<?php include('include/head.php'); 
+
+session_start(); // Obligatoirement avant tout `echo`, `print` ou autre texte HTML.
+if(!isset($_SESSION['login'])) {
+    header('Location: login.php');
+    exit();
+}
+
+?>
 
 <body>
         <!-- Left Panel -->

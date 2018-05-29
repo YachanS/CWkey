@@ -1,9 +1,9 @@
 <?php
 try
 {
-$user = "admin";
+$user = "root";
 $pass = "root";
-$bdd = new PDO('mysql:host=localhost;dbname=login', $user, $pass);
+$bdd = new PDO('mysql:host=localhost;dbname=cwkeytest', $user, $pass);
 }
 catch (Exception $e)
 {

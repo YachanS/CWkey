@@ -17,10 +17,12 @@
                     	<li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-user"></i>Compte</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-sign-in"></i><a href="page-login.php">Login</a></li>
+                            <li><i class="menu-icon fa fa-sign-in"></i><a href="login.php">Login</a></li>
                             <li><i class="menu-icon fa fa-sign-in"></i><a href="page-register.php">Register</a></li>
                         </ul>
                     </li>
+
+<?php if($_SESSION['rang'] == 3){ ?>
 
                     <h3 class="menu-title">Admin</h3><!-- /.menu-title -->
 
@@ -32,6 +34,8 @@
                             <li><i class="fa fa-list"></i><a href="user-list.php">Users list</a></li>
                         </ul>
                     </li>
+
+<?php } ?>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>

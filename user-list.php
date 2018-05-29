@@ -1,3 +1,12 @@
+<?php 
+session_start();
+if ($_SESSION['rang'] = 1){
+    header('Location: index.php');
+    exit();
+}
+
+?>
+
 <?php include('include/head.php'); ?>
 
 <body>
