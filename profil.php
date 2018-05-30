@@ -52,8 +52,12 @@ include('include/header.php');
                                     </li>
                                     <li class="list-group-item">
                                         <a href="#"> <i class="fa fa-star"></i> Rang :
-                                        <?php 
-                                        echo $_SESSION['rang'];
+                                        <?php
+                                        if($_SESSION['rang'] == 1) {
+                                            echo 'Utilisateur';
+                                        } else {
+                                        echo 'Administrateur';
+                                        }
                                         ?>
                                     </a>
                                     </li>

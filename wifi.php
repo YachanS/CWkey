@@ -1,4 +1,5 @@
-<?php 
+<?php
+include('config/bdd.php');
 session_start();
 if ($_SESSION['rang'] != 3){
     header('Location: index.php');
@@ -28,34 +29,91 @@ if ($_SESSION['rang'] != 3){
             </div>
         </div>
 
-<form>
+<?php
+
+if((!empty($_POST['user']) && !empty($_POST['wifi']))){
+
+    $wifi = $_POST['wifi'];
+    $user = $_POST['user'];
+    $mdp = chaine_aleatoire(8);
+
+$data = array(
+            "wifi" => $wifi, 
+            "user" => $user,
+            "mdp" => password_hash($mdp, PASSWORD_DEFAULT),
+            );
+
+    $req = $bdd->prepare("INSERT INTO wifi_user (id_wifi,id_user,mdp) VALUES (:wifi, :user, :mdp)");
+    $result = $req->execute($data);
+
+
+
+            echo ' <div class="card">
+                    <div class="card-body">
+                        <div class="alert alert-success" role="alert">
+                                            <h4 class="alert-heading">Success !</h4>
+                                            <p>The password is : </p>
+                                            <hr>
+                                            <p class="mb-0">'.$mdp.'</p>
+                                        </div>
+                                    </div>
+                                </div> ' ;
+}
+
+
+function chaine_aleatoire($nb_car, $chaine = 'azertyuiopqsdfghjklmwxcvbn123456789')
+{
+    $nb_lettres = strlen($chaine) - 1;
+    $generation = '';
+    for($i=0; $i < $nb_car; $i++)
+    {
+        $pos = mt_rand(0, $nb_lettres);
+        $car = $chaine[$pos];
+        $generation .= $car;
+    }
+    return $generation;
+}
+
+?>
+
+<form action="wifi.php" method="post">
     <div class="col-xs-6 col-sm-6">
         <div class="card">
             <div class="card-header">
                 <strong class="card-title">User</strong>
             </div>
                 <div class="card-body">
-                    <input list="users" id="" name="" class="col-lg-12"/>
-                        <datalist id="users">
-                            <option value="">
-                            <option value="Mathieu">
-                            <option value="Aurélien">
-                            <option value="Axel">
-                            <option value="Yachan">
-                        </datalist>
+                <input list="user" id="" name="user" class="col-lg-12"/>
+                    <datalist id="user" name="user">
+                        <?php
+                        $sql = 'SELECT * FROM users' ;
+                        $req = $bdd->prepare($sql);
+                        $req->execute();
+                        while($row = $req->fetch()) {
+                        echo '<option value="' . $row['id'] . '">' . $row['name'] . '</option>';
+                        }    
+                        ?>
+                    </datalist>
                 </div>
         </div>
     </div>
+
     <div class="col-xs-6 col-sm-6">
         <div class="card">
             <div class="card-header">
                 <strong class="card-title">wifi</strong>
             </div>
             <div class="card-body">
-                <input list="wifi" id="" name="" class="col-lg-12"/>
-                    <datalist id="wifi">
-                        <option value="Openspace">
-                        <option value="Reunion">
+                <input list="wifi" id="" name="wifi" class="col-lg-12"/>
+                    <datalist id="wifi" name="wifi">
+                        <?php
+                        $sql = 'SELECT * FROM wifi';
+                        $req = $bdd->prepare($sql);
+                        $req->execute();
+                        while($row = $req->fetch()) {
+                        echo '<option value="' . $row['id'] . '">' . $row['libelle'] . '</option>';
+                        }    
+                        ?>
                     </datalist>
             </div>
         </div>
@@ -67,21 +125,6 @@ if ($_SESSION['rang'] != 3){
         </center>
     </div>
 </form>
-
-<div class="col-xs-12 col-sm-12">
-    <div class="card-header">
-        <div>
-            <strong class="card-title">Contents</strong>
-        </div>
-        <div class="card-body">
-            <div class="alert alert-danger" role="alert">
-                <h4 class="alert-heading">Well done!</h4>
-                <p>Le mot de passe pour l'utilisateur "" pour le wifi "" est :</p><hr>
-                <p class="mb-0">mot de passe</p>
-            </div>
-        </div>
-    </div>
-</div>
 
 </body>
 

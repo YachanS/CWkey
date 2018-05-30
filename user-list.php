@@ -36,23 +36,44 @@ if ($_SESSION['rang'] != 3){
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
+                <?php
+                if($_GET['del'] == "true"){
+              
+              $sql = 'DELETE FROM users WHERE id = ?';    
+              $req = $bdd->prepare($sql);
+              $req->execute(array($_GET['id']));
+              header("Location: user-list.php");
+
+                }
+                $sql = 'SELECT * FROM users' ;
+                $req = $bdd->prepare($sql);
+                $req->execute();
+                ?>
                   <table id="user-list" class="table table-striped table-bordered">
                     <thead>
                       <tr>
                         <th>Nom</th>
-                        <th>Prénom</th>
                         <th>Mail</th>
                         <th>Téléphone</th>
+                        <th>Rang</th>
+                        <th>delete</th>
                       </tr>
                     </thead>
+                    <?php
+                    while($row = $req->fetch()) {
+                    ?>
                     <tbody>
                       <tr>
-                        <td>Tiger</td>
-                        <td>Nixon</td>
-                        <td>TN@gmail.com</td>
-                        <td>061122334455</td>
+                        <td><?php echo $row['name'];?></td>
+                        <td><?php echo $row['email'];?></td>
+                        <td><?php echo $row['phone'];?></td>
+                        <td><?php if($row['rang'] == 1){ echo'utilisateur'; } else {echo'administrateur';} ?></td>
+                        <td><center><a href="user-list.php?del=true&id=<?php echo $row['id']; ?>"><img src="images/del.png" /></a></center></td>
                       </tr>
                     </tbody>
+                    <?php
+                    }
+                    ?>
                   </table>
                         </div>
                     </div>
