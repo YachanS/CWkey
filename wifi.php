@@ -1,6 +1,6 @@
 <?php 
 session_start();
-if ($_SESSION['rang'] = 1){
+if ($_SESSION['rang'] != 3){
     header('Location: index.php');
     exit();
 }
@@ -10,7 +10,6 @@ if ($_SESSION['rang'] = 1){
 <?php include('include/head.php'); ?>
 
 <body>
-
         <!-- Left Panel -->
 
 <?php include('include/leftsidebar.php'); ?>
@@ -75,7 +74,7 @@ if ($_SESSION['rang'] = 1){
             <strong class="card-title">Contents</strong>
         </div>
         <div class="card-body">
-            <div class="alert alert-success" role="alert">
+            <div class="alert alert-danger" role="alert">
                 <h4 class="alert-heading">Well done!</h4>
                 <p>Le mot de passe pour l'utilisateur "" pour le wifi "" est :</p><hr>
                 <p class="mb-0">mot de passe</p>

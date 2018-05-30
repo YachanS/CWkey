@@ -19,7 +19,7 @@
                         </a>
 
                         <div class="user-menu dropdown-menu">
-                                <a class="nav-link" href="profil.php"><i class="fa fa- user"></i>(<?php echo $_SESSION['login']; ?>) My Profile</a>
+                                <a class="nav-link" href="profil.php"><i class="fa fa- user"></i> My Profile</a>
 
                                 <a class="nav-link" href="logout.php"><i class="fa fa-power -off"></i>Logout</a>
                         </div>

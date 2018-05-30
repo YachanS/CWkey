@@ -19,7 +19,7 @@ include('include/header.php');
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Profile</h1>
+                        <h1>Profil</h1>
                     </div>
                 </div>
             </div>
@@ -47,6 +47,13 @@ include('include/header.php');
                                         <a href="#"> <i class="fa fa-phone"></i> Tel :
                                         <?php 
                                         echo $_SESSION['phone'];
+                                        ?>
+                                    </a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a href="#"> <i class="fa fa-star"></i> Rang :
+                                        <?php 
+                                        echo $_SESSION['rang'];
                                         ?>
                                     </a>
                                     </li>

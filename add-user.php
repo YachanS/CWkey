@@ -1,13 +1,67 @@
 <?php 
 session_start();
-if ($_SESSION['rang'] = 1){
+if ($_SESSION['rang'] != 3){
     header('Location: index.php');
     exit();
 }
 
 ?>
 
-<?php include('include/head.php'); ?>
+<?php
+include('include/head.php');
+include('config/bdd.php');
+
+$mdp = chaine_aleatoire(8);
+
+if((!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['phone']))) {
+    $name = htmlentities($_POST['name']);
+    $email = htmlentities($_POST['email']);
+    $phone = htmlentities($_POST['phone']);
+   
+        // DEBUGAGE
+        // echo $_POST['email'];
+        // echo $_POST['pass'];
+        
+        $sql = 'SELECT COUNT(*) FROM users WHERE email = ?';
+        $req = $bdd->prepare($sql);
+        $req->execute(array($email));
+        while($row = $req->fetchColumn()) {
+            $nb = $row;
+        }
+        /** on recherche si l'e-mail est déjà utilisé par un autre membre */
+        $date = date("Y-m-d");
+        if($nb == 0) {
+            $tab = array(
+                "email" => $email,
+                "pass" => password_hash($mdp, PASSWORD_DEFAULT),
+                "register_date" => $date,
+                "rang" => '1',
+                "phone" => $phone,
+                "name" => $name
+            );
+            $sql = 'INSERT INTO users (email,password,register_date,rang,phone,name) VALUES (:email, :pass, :register_date, :rang, :phone, :name)';
+            $req = $bdd->prepare($sql);
+            $result = $req->execute($tab);
+            
+            header('Location: user-list.php');
+            exit();
+        } else $erreur = 'Un membre possède déjà cette e-mail.';
+    } else $erreur = 'Au moins un des champs est vide.';
+
+function chaine_aleatoire($nb_car, $chaine = 'azertyuiopqsdfghjklmwxcvbn123456789')
+{
+    $nb_lettres = strlen($chaine) - 1;
+    $generation = '';
+    for($i=0; $i < $nb_car; $i++)
+    {
+        $pos = mt_rand(0, $nb_lettres);
+        $car = $chaine[$pos];
+        $generation .= $car;
+    }
+    return $generation;
+}
+
+?>
 
 <body>
         <!-- Left Panel -->
@@ -30,32 +84,31 @@ if ($_SESSION['rang'] = 1){
 
         <div class="col-lg-12">
                     <div class="card">
-                      <div class="card-header">Add user</div>
                       <div class="card-body card-block">
 
                         <form action="" method="post" class="">
                           <div class="form-group">
                             <div class="input-group">
                               <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                              <input type="text" id="nom" name="nom" placeholder="Nom" class="form-control">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <div class="input-group">
-                              <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                              <input type="text" id="prenom" name="prenom" placeholder="Prénom" class="form-control">
+                              <input type="text" name="name" placeholder="Name" class="form-control">
                             </div>
                           </div>
                           <div class="form-group">
                             <div class="input-group">
                               <div class="input-group-addon"><i class="fa fa-envelope"></i></div>
-                              <input type="email" id="email" name="email" placeholder="Email" class="form-control">
+                              <input type="email" name="email" placeholder="Email" class="form-control">
                             </div>
                           </div>
                           <div class="form-group">
                             <div class="input-group">
                               <div class="input-group-addon"><i class="fa fa-phone"></i></div>
-                              <input type="tel" id="tel" name="tel" placeholder="Tel" class="form-control">
+                              <input type="phone" name="phone" placeholder="Tel" class="form-control">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="input-group">
+                              <div class="input-group-addon"><i class="fa fa-lock"></i></div>
+                              <input type="text" name="pass" value="<?php print($mdp) ?>" class="form-control">
                             </div>
                           </div>
                           <center><div class="form-actions form-group"><button type="submit" class="btn btn-success btn-sm">Submit</button></div></center>

@@ -1,6 +1,6 @@
 <?php 
 session_start();
-if ($_SESSION['rang'] = 1){
+if ($_SESSION['rang'] != 3){
     header('Location: index.php');
     exit();
 }
@@ -35,9 +35,6 @@ if ($_SESSION['rang'] = 1){
 
                 <div class="col-md-12">
                     <div class="card">
-                        <div class="card-header">
-                            <strong class="card-title">Users list</strong>
-                        </div>
                         <div class="card-body">
                   <table id="user-list" class="table table-striped table-bordered">
                     <thead>

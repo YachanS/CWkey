@@ -1,4 +1,5 @@
-<?php include('include/head.php'); 
+<?php
+include('include/head.php'); 
 include('config/bdd.php');
 
 if(!empty($_POST['phone'])){
