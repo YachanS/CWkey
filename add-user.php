@@ -108,10 +108,21 @@ function chaine_aleatoire($nb_car, $chaine = 'azertyuiopqsdfghjklmwxcvbn12345678
                           <div class="form-group">
                             <div class="input-group">
                               <div class="input-group-addon"><i class="fa fa-lock"></i></div>
-                              <input type="text" name="pass" value="<?php print($mdp) ?>" class="form-control">
+                              <input type="text" name="pass" id="pass" value="<?php print($mdp) ?>" class="form-control">
+                              <input type="button" id="copy" value="Copier" onclick="copier();" />
                             </div>
                           </div>
-                          <center><div class="form-actions form-group"><button type="submit" class="btn btn-success btn-sm">Submit</button></div></center>
+                          <script type="text/javascript">
+                          function copy() {
+                            var copyText = document.querySelector("#pass");
+                            copyText.select();
+                            document.execCommand("Copy");
+                          }
+
+                          document.querySelector("#copy").addEventListener("click", copy);
+                          </script>
+                          <center><div class="form-actions form-group">
+                          <button type="submit" class="btn btn-success btn-sm">Submit</button></div></center>
                         </form>
 
                       </div>

@@ -9,13 +9,13 @@ if(!isset($_SESSION['login'])) {
 ?>
 
 <body>
-        <!-- Left Panel -->
 
 <?php include('include/leftsidebar.php'); ?>
 
-        <!-- Right Panel -->
 
 <?php include('include/header.php'); ?>
+
+
 
 <div class="breadcrumbs">
             <div class="col-sm-4">
@@ -27,34 +27,36 @@ if(!isset($_SESSION['login'])) {
             </div>
         </div>
 
+    <?php
+        $sql = 'SELECT * FROM coworking' ;
+        $req = $bdd->prepare($sql);
+        $req->execute();
+        while($row = $req->fetch()){
+        $sql2 = 'SELECT * FROM wifi_user where id_user = ? AND id_coworking = ?' ;
+        $req2 = $bdd->prepare($sql2);
+        $req2->execute(array($_SESSION['login'],$row['id']));
+        while($row2 = $req2->fetch()){
+        $sql3 = 'SELECT * FROM wifi where id = ?' ;
+        $req3 = $bdd->prepare($sql3);
+        $req3->execute(array($row2['id_wifi']));
+        while($row3 = $req3->fetch()){    
+    ?>    
+
 
 	<div class="col-md-4">
                         <div class="card">
                             <img class="card-img-top" src="images/placeholder.png" alt="Card image cap">
                             <div class="card-body">
-                                <h4 class="card-title mb-3">Captain OpenSpace</h4>
-                                <p class="card-text">Utilisateur : lenumero1 </br>Mot de passe : jugtreppokj</p>
+                                <h4 class="card-title mb-3"><?php echo $row['libelle']; ?></h4>
+                                    <p class="card-text">Utilisateur : <?php echo $_SESSION['name']; ?> </br>Mot de passe : <?php echo $row2['mdp']; ?></br>Wifi : <?php echo $row3['libelle']; ?></p>
                             </div>
                         </div>
                     </div>
-    <div class="col-md-4">
-                        <div class="card">
-                            <img class="card-img-top" src="images/placeholder.png" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title mb-3">Captain Reunion</h4>
-                                <p class="card-text">Utilisateur : lenumero1 </br>Mot de passe : 545311ffgc</p>
-                            </div>
-                        </div>
-                    </div>
-    <div class="col-md-4">
-                        <div class="card">
-                            <img class="card-img-top" src="images/placeholder.png" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title mb-3">RJ45</h4>
-                                <p class="card-text">Branchez vous a un réseau fiable et rapide</p>
-                            </div>
-                        </div>
-                    </div>
+    <?php
+                } 
+            }
+        }
+    ?>
 </body>
 
 <?php include('include/footer.php'); ?>

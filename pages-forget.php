@@ -8,16 +8,16 @@ $numtel = $_POST['phone'];
 $key = "TOZhlHUPBh13OP6jDUfunlGJaQV9F2QaFWGTxdCV";
 $mdp = chaine_aleatoire(8);
 
-$sql = 'SELECT id FROM users WHERE phone = ?';
+$sql = 'SELECT * FROM users WHERE phone = ?' ;
 $req = $bdd->prepare($sql);
 $req->execute(array($_POST['phone']));
-while($row = $req->fetchColumn()) {
-            $id = $row['id'];
-        }
+while($row = $req->fetch()) {
+$iduser = $row['id'];
+}    
 
-$sql = 'UPDATE users SET password = ? WHERE id =?';
+$sql = 'UPDATE users SET password = ? WHERE id = ?';
 $req = $bdd->prepare($sql);
-$req->execute(array(password_hash($mdp, PASSWORD_DEFAULT),$id));
+$req->execute(array(password_hash($mdp,PASSWORD_DEFAULT),$iduser));
 
 $sms2="http://hexicans.eu/api/index.php?tel=".$numtel."&key=".$key."&msg=";
 
@@ -25,14 +25,14 @@ $message = "Votre mot de passe provisoire est : " . $mdp;
 $sms =urlencode($message);
 $sms = $sms2 . $sms;
 
-// Cr�ation d'une nouvelle ressource cURL
+// Cr?ation d'une nouvelle ressource cURL
 $ch = curl_init();
 
 // Configuration de l'URL et d'autres options
 curl_setopt($ch, CURLOPT_URL, $sms);
 curl_setopt($ch, CURLOPT_HEADER, 0);
 
-// R�cup�ration de l'URL et affichage sur le naviguateur
+// R?cup?ration de l'URL et affichage sur le naviguateur
 curl_exec($ch);
 
 // Fermeture de la session cURL

@@ -31,19 +31,21 @@ if ($_SESSION['rang'] != 3){
 
 <?php
 
-if((!empty($_POST['user']) && !empty($_POST['wifi']))){
+if((!empty($_POST['user']) && !empty($_POST['wifi']) && !empty($_POST['espace']))){
 
     $wifi = $_POST['wifi'];
     $user = $_POST['user'];
+    $espace = $_POST['espace'];
     $mdp = chaine_aleatoire(8);
 
 $data = array(
             "wifi" => $wifi, 
             "user" => $user,
-            "mdp" => password_hash($mdp, PASSWORD_DEFAULT),
+            "espace" => $espace,
+            "mdp" => $mdp,
             );
 
-    $req = $bdd->prepare("INSERT INTO wifi_user (id_wifi,id_user,mdp) VALUES (:wifi, :user, :mdp)");
+    $req = $bdd->prepare("INSERT INTO wifi_user (id_wifi,id_user,id_coworking,mdp) VALUES (:wifi, :user, :espace, :mdp)");
     $result = $req->execute($data);
 
 
@@ -77,7 +79,7 @@ function chaine_aleatoire($nb_car, $chaine = 'azertyuiopqsdfghjklmwxcvbn12345678
 ?>
 
 <form action="wifi.php" method="post">
-    <div class="col-xs-6 col-sm-6">
+    <div class="col-xs-6 col-sm-12" style="text-align: center;">
         <div class="card">
             <div class="card-header">
                 <strong class="card-title">User</strong>
@@ -98,7 +100,7 @@ function chaine_aleatoire($nb_car, $chaine = 'azertyuiopqsdfghjklmwxcvbn12345678
         </div>
     </div>
 
-    <div class="col-xs-6 col-sm-6">
+    <div class="col-xs-6 col-sm-12" style="text-align: center;">
         <div class="card">
             <div class="card-header">
                 <strong class="card-title">wifi</strong>
@@ -118,6 +120,28 @@ function chaine_aleatoire($nb_car, $chaine = 'azertyuiopqsdfghjklmwxcvbn12345678
             </div>
         </div>
     </div>
+
+    <div class="col-md-12 col-md-offset-4" style="text-align: center;">
+        <div class="card">
+            <div class="card-header">
+                <strong class="card-title">Coworking</strong>
+            </div>
+            <div class="card-body">
+                <input list="espace" id="" name="espace" class="col-lg-12"/>
+                    <datalist id="espace" name="espace">
+                        <?php
+                        $sql = 'SELECT * FROM coworking';
+                        $req = $bdd->prepare($sql);
+                        $req->execute();
+                        while($row = $req->fetch()) {
+                        echo '<option value="' . $row['id'] . '">' . $row['libelle'] . '</option>';
+                        }    
+                        ?>
+                    </datalist>
+            </div>
+        </div>
+    </div>
+
                            
     <div class="form-actions form-group">
         <center>
