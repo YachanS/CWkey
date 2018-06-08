@@ -118,7 +118,7 @@ $req3->execute(array($_SESSION['login']));
 
 if (!empty($_POST['check'])){
     
-$numtel = '0644859129';
+$numtel = 'Numéro de téléphone';
 $key = "TOZhlHUPBh13OP6jDUfunlGJaQV9F2QaFWGTxdCV";
 
 $sql = 'SELECT * FROM users WHERE id = ?' ;

@@ -13,7 +13,7 @@ require 'init.php';
 $error = '';
 if ($_POST) {
 
-  \Stripe\Stripe::setApiKey("sk_test_boJmYeMIIn22Q5Sotzk23Pmq");
+  \Stripe\Stripe::setApiKey("");
 
   try {
     if (!isset($_POST['stripeToken']))
@@ -52,7 +52,7 @@ while($row4 = $req4->fetch()) {
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
         <script type="text/javascript">
             // this identifies your website in the createToken call below
-            Stripe.setPublishableKey('pk_test_P0PLVruVETwr0GZ58E4bnufa');
+            Stripe.setPublishableKey('');
             function stripeResponseHandler(status, response) {
                 if (response.error) {
                     // re-enable the submit button
