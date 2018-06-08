@@ -35,40 +35,37 @@ include('include/head.php');
 
 if((!empty($_POST['libelle']) && !empty($_POST['dateDeb']) && !empty($_POST['dateFin']) && !empty($_POST['salle']) && !empty($_POST['cowo']))){
 
+    $libelle = $_POST['libelle'];
+    $dateDeb = $_POST['dateDeb'];
+    $dateFin = $_POST['dateFin'];
+    $salle = $_POST['salle'];
+    $cowo = $_POST['cowo'];
+    $user = $_SESSION['login'];
+
 $data = array(
             "libelle" => $libelle, 
             "dateDeb" => $dateDeb,
             "dateFin" => $dateFin,
             "salle" => $salle,
             "cowo" => $cowo,
-            "user" => $user,
+            "user" => $user
             );
 
-    $sql = "INSERT INTO reservation (libelle,dateDeb,dateFin,idSalle,id_user,id_coworking) VALUES (:libelle, :dateDeb, :dateFin, :salle, :user, :cowo)";
-    $req = $bdd->prepare($sql);
-    $result = $req->execute(array($data));
+    $sql = 'INSERT INTO reservation (libelle,dateDeb,dateFin,idUser,idSalle,idCowo) VALUES (:libelle, :dateDeb, :dateFin, :user, :salle, :cowo)';
+    $req = $bdd->prepare($sql);  
+    $result = $req->execute($data); 
 
-            echo ' <div class="card">
-                    <div class="card-body">
-                        <div class="alert alert-success" role="alert">
-                                            <h4 class="alert-heading">Success !</h4>
-                                            <p>Votre reservation : </p>
-                                            <hr>
-                                            <p class="mb-0">du : ' .$dateDeb. '</p>
-                                        </div>
-                                    </div>
-                                </div> ' ;
+    header('Location: choixpaiement.php');
 
 }
 
 ?>
 
-<form action="reservation.php" action="post">
+<form action="reservation.php" method="post">
     <div class="col-lg-12">
                         <div class="card">
                           <div class="card-body card-block">
 
-                            <form action="" method="post" class="">
                               <div class="form-group">
                                 <div class="input-group">
                                   <div class="input-group-addon"><i class="fa fa-building-o"></i></div>
@@ -91,7 +88,7 @@ $data = array(
                                 <div class="input-group">
                                   <div class="input-group-addon"><i class="fa fa-home"></i></div>
                                   <input list="salle" id="" name="salle" placeholder="salle" class="form-control"/>
-                                    <datalist id="salle" name="cowo">
+                                    <datalist id="salle" name="">
                                         <?php
                                             $sql = 'SELECT * FROM salle' ;
                                             $req = $bdd->prepare($sql);
@@ -107,7 +104,7 @@ $data = array(
                                 <div class="input-group">
                                   <div class="input-group-addon"><i class="fa fa-home"></i></div>
                                   <input list="cowo" name="cowo" placeholder="coworking" class="form-control"/>
-                                    <datalist id="cowo" name="cowo">
+                                    <datalist id="cowo" name="">
                                         <?php
                                             $sql = 'SELECT * FROM coworking' ;
                                             $req = $bdd->prepare($sql);

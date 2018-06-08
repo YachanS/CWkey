@@ -20,8 +20,14 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-calendar"></i>Reservation</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-calendar-o"></i><a href="calendrier.php">Calendrier des reservations</a></li>
-                            <li><i class="fa fa-calendar-o"></i><a href="reservation.php">Faire une reservation</a></li>
+                            <li><i class="fa fa-calendar-o"></i><a href="calendrier.php">Calendrier</a></li>
+                            <li><i class="fa fa-calendar-o"></i><a href="reservation.php">Reserver</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-user"></i>Compte</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-plus-circle"></i><a href="recharger.php">Recharger crédit</a></li>
                         </ul>
                     </li>
                     	
